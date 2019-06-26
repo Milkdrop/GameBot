@@ -8,5 +8,7 @@ You will need to install:
 - `sudo apt-get install pyscreenshot wmctrl`
 - `sudo pip install pynput discord.py asyncio`
 
+You can also test the bot out on this server: https://discord.gg/UwgPhnW (hack week)
+
 ![Picture 1](img/1.png)
 ![Picture 2](img/2.png)
