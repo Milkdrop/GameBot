@@ -77,7 +77,10 @@ async def SendImage(react=False):
 	msgold = msg
 	msg = await ch.send(file=discord.File("frame.jpg"))
 	if (msgold != None):
-		await msgold.delete()
+		try:
+			await msgold.delete()
+		except:
+			pass
 	if (react):
 		await msg.add_reaction(emotes["AButton"])
 		await msg.add_reaction(emotes["BButton"])
@@ -153,9 +156,10 @@ async def on_message(message):
 		while (GetWindowCoords() == None): # Avoid any issues
 			time.sleep(0.1)
 		
-		ch = message.channel
-		msg = None
-		CurrentUpdate = 0
+		if (ch != message.channel): # Active on a different channel
+			ch = message.channel
+			msg = None
+			CurrentUpdate = 0
 	elif (message.content == "%stop"):
 		await msg.delete()
 		ch = None
